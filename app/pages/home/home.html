@@ -18,11 +18,12 @@
         </ion-item>
       </ion-list>
       <div class="padding">
-        <button block (click)="getProduct()">Rechercher</button>
+        <button block (click)="scan()">Scanner un produit</button>
+        <button block (click)="getProduct(productCode)">Rechercher</button>
       </div>
       <ion-card *ngIf="foundProduct" (click)="viewProductDetails(foundProduct)">
         <ion-card-header>
-          {{foundProduct.product_name}}
+          {{foundProduct.product_name || foundProduct.code}}
         </ion-card-header>
         <ion-card-content>
           {{foundProduct.ingredients_text}}

@@ -10,10 +10,20 @@ import {OFFService} from '../../services/OFF';
 export class DetailsPage {
   public product;
 
+  public nutrients = {
+    'salt': "Sel",
+    'fat': "Matières grasses / Lipides",
+    'saturated-fat': "Acides gras saturés"
+  }
+
   constructor(private openFoodFacts: OFFService,
               private nav: NavController,
               private navParams: NavParams) {
 
     this.product = navParams.get('product');
+  }
+
+  getNutrients() {
+    return Object.keys(this.product.nutrient_levels);
   }
 }

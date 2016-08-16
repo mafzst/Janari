@@ -12,9 +12,23 @@
         <ion-item>
           <ion-icon name="speedometer" item-left></ion-icon>
           <h2>Score nutritionnel</h2>
-          <ion-badge item-right class={{product.nutrition_grades}}>{{product.nutrition_grades}}</ion-badge>
+          <ion-badge item-right class={{product.nutrition_grades}}>&#160;{{product.nutrition_grades || "?"}}&#160;</ion-badge>
+        </ion-item>
+        <ion-item>
+          <ion-icon name="disc" item-left></ion-icon>
+          <h2>Repères nutritionnels</h2>
+        </ion-item>
+        <ion-item *ngFor="let nutrient of getNutrients()">
+          <ion-icon name="illegal" item-left></ion-icon>
+          <p>{{nutrients[nutrient] || nutrient}}</p>
+          <ion-badge class="{{product.nutrient_levels[nutrient]}}" item-right>&#160;&#160;&#160;</ion-badge>
         </ion-item>
       </ion-list>
+      <ion-item>
+        <ion-icon name="locate" item-left></ion-icon>
+        <h2>Traces</h2>
+        <p>{{product.traces}}</p>
+      </ion-item>
       <!--<ion-icon name="flask"></ion-icon>-->
     </ion-card-content>
   </ion-card>

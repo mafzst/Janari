@@ -5,8 +5,24 @@
 </ion-header>
 
 <ion-content>
-  <div padding>
-    <b>{{product.generic_name || product.product_name || product.code}}</b> <br>
-    {{product.ingredients_text}}
-  </div>
+  <ion-card>
+    <ion-card-content>
+      <ion-card-title>Carractéristiques</ion-card-title>
+      <ion-list no-lines>
+        <ion-item>
+          <ion-icon name="speedometer" item-left></ion-icon>
+          <h2>Score nutritionnel</h2>
+          <ion-badge item-right class={{product.nutrition_grades}}>{{product.nutrition_grades}}</ion-badge>
+        </ion-item>
+      </ion-list>
+      <!--<ion-icon name="flask"></ion-icon>-->
+    </ion-card-content>
+  </ion-card>
+  <ion-card>
+    <ion-card-content>
+      <ion-card-title>Ingrédients</ion-card-title>
+      <b>{{product.generic_name || product.product_name || product.code}}</b> <br>
+      {{product.ingredients_text}}
+    </ion-card-content>
+  </ion-card>
 </ion-content>

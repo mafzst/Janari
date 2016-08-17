@@ -18,14 +18,22 @@ ion-badge.e {
   background: #ff0000;
 }
 
-ion-badge.low {
+ion-badge.low, ion-badge.additive-danger-0, ion-badge.additive-danger-1{
   background: #60f000;
 }
 
-ion-badge.moderate {
+ion-badge.moderate, ion-badge.additive-danger-2{
   background: #ffcc01;
 }
 
-ion-badge.high {
+ion-badge.additive-danger-3{
+  background: #ff7d00;
+}
+
+ion-badge.high, ion-badge.additive-danger-4{
   background: #f00000;
+}
+
+ion-badge.additive-danger-5{
+  background: #990000;
 }

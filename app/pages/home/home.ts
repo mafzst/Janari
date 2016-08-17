@@ -13,7 +13,7 @@ import {CategoryPage} from '../category/category';
 })
 export class HomePage {
   public foundProduct;
-  public productCode;
+  public productCode = "3116740031499";
   public categoryName = "pizza";
   public foundCategories;
 
@@ -44,7 +44,7 @@ export class HomePage {
       err => {
         this.alertController.create({
           title: "Erreur de recherche",
-          subTitle: "Une erreur est survenue lors de la recherche du produit. Vérifiez votre connexion Internet et rézssayez",
+          subTitle: "Une erreur est survenue lors de la recherche du produit. Vérifiez votre connexion Internet et rézssayez. Infos techniques : " + err,
           buttons: [
             {
               text: "Réessayer",
@@ -54,7 +54,7 @@ export class HomePage {
               text: "OK"
             }
           ]
-        })
+        }).present()
       }
     );
   }

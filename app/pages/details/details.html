@@ -25,7 +25,18 @@
         <h2>Traces</h2>
         <p>{{product.traces}}</p>
       </ion-item>
-      <!--<ion-icon name="flask"></ion-icon>-->
+      <ion-item>
+        <ion-icon name="flask" item-left></ion-icon>
+        <h2>Additifs</h2>
+        <ion-icon name="help" item-right (click)="showAdditiveInfo()"></ion-icon>
+      </ion-item>
+      <ion-item *ngFor="let additive of product.additives_tags">
+        <ion-icon name="illegal" item-left></ion-icon>
+        <b>{{additives[additive]?.code}}</b>
+        <p>{{additives[additive]?.name}}</p>
+        <ion-badge class="additive-danger-{{additives[additive]?.danger || 0}}" item-right>&#160;{{additives[additive]?.danger}}&#160;</ion-badge>
+      </ion-item>
+
     </ion-card-content>
   </ion-card>
   <ion-card>

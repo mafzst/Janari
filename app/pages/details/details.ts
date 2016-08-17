@@ -13,7 +13,8 @@ export class DetailsPage {
   public nutrients = {
     'salt': "Sel",
     'fat': "Matières grasses / Lipides",
-    'saturated-fat': "Acides gras saturés"
+    'saturated-fat': "Acides gras saturés",
+    'sugars': "Sucres"
   }
 
   constructor(private openFoodFacts: OFFService,

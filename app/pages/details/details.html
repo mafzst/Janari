@@ -14,10 +14,6 @@
           <h2>Score nutritionnel</h2>
           <ion-badge item-right class={{product.nutrition_grades}}>&#160;{{product.nutrition_grades || "?"}}&#160;</ion-badge>
         </ion-item>
-        <ion-item>
-          <ion-icon name="disc" item-left></ion-icon>
-          <h2>Repères nutritionnels</h2>
-        </ion-item>
         <ion-item *ngFor="let nutrient of getNutrients()">
           <ion-icon name="illegal" item-left></ion-icon>
           <p>{{nutrients[nutrient] || nutrient}}</p>

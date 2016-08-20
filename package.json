@@ -1,4 +1,26 @@
 {
+
+  "name": "janari",
+  "version": "0.1.0",
+  "description": "An open food analyser",
+  "licenses":  [{
+    "type": "GNU GPL v3",
+    "url": "https://opensource.org/licenses/GPL-3.0"
+    }],
+  "author": {
+        "name": "Nicolas Perraut",
+        "email": "nicolas@ownweb.fr",
+        "web": "http://ownweb.fr"
+    },
+  "contributors": [
+    {
+        "name": "Nicolas Perraut",
+        "email": "nicolas@ownweb.fr",
+        "web": "http://ownweb.fr"
+    }
+  ],
+  "repository": "https://github.com/mafzst/janari",
+  "bugs": "https://github.com/mafzst/janari/issues",
   "dependencies": {
     "@angular/common": "2.0.0-rc.4",
     "@angular/compiler": "2.0.0-rc.4",
@@ -36,7 +58,5 @@
     "cordova-plugin-splashscreen",
     "ionic-plugin-keyboard"
   ],
-  "cordovaPlatforms": [],
-  "name": "cutepuppypics",
-  "description": "cutePuppyPics: An Ionic project"
+  "cordovaPlatforms": []
 }

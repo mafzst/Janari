@@ -66,16 +66,6 @@ export class HomePage {
     );
   }
 
-  getCategories() {
-    this.openFoodFacts.getCategory(this.categoryName).subscribe(
-      data => {
-        const json = data.json();
-        this.foundCategories = json.slice(0, 10);
-      },
-      err => console.log(err)
-    )
-  }
-
   scan() {
     BarcodeScanner.scan()
       .then((result) => {
@@ -93,9 +83,5 @@ export class HomePage {
 
   viewProductDetails(product) {
     this.nav.push(DetailsPage, {product: product});
-  }
-
-  viewCategoryProducts(category) {
-    this.nav.push(CategoryPage, {category: category});
   }
 }

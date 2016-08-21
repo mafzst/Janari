@@ -31,25 +31,4 @@
       </ion-card>
     </ion-card-content>
   </ion-card>
-
-  <ion-card>
-    <ion-card-header>
-      Rechercher par catégorie
-    </ion-card-header>
-    <ion-card-content>
-      <ion-list inset>
-        <ion-item>
-          <ion-label floating>Catégorie</ion-label>
-          <ion-input [(ngModel)]="categoryName" (keyup)="getCategories()" type="text"></ion-input>
-        </ion-item>
-      </ion-list>
-      <div class="padding">
-        <ion-list>
-          <ion-item *ngFor="let category of foundCategories" (click)="viewCategoryProducts(category)">
-            {{category}}
-          </ion-item>
-        </ion-list>
-      </div>
-      </ion-card-content>
-    </ion-card>
 </ion-content>

@@ -1,0 +1,33 @@
+---
+engines:
+  duplication:
+    enabled: true
+    config:
+      languages:
+      - ruby
+      - javascript
+      - typescript
+      - python
+      - php
+      - css
+  eslint:
+    enabled: true
+  csslint:
+    enbled: true
+  fixme:
+    enabled: true
+    config:
+      extensions:
+        - .ts
+ratings:
+  paths:
+  - "**.inc"
+  - "**.js"
+  - "**.jsx"
+  - "**.module"
+  - "**.php"
+  - "**.py"
+  - "**.rb"
+  - "**.ts"
+  - "**.scss"
+exclude_paths: ["bower_components", "typing"]

@@ -1,11 +1,11 @@
 import {Component} from '@angular/core';
 
-import {NavController, AlertController} from 'ionic-angular';
+import {NavController, AlertController, PopoverController} from 'ionic-angular';
 import {BarcodeScanner} from 'ionic-native';
 
 import {OFFService} from '../../services/OFF';
 import {DetailsPage} from '../details/details';
-import {CategoryPage} from '../category/category';
+import {AppPopover} from '../../global/popover';
 
 @Component({
   templateUrl: 'build/pages/home/home.html',
@@ -19,7 +19,8 @@ export class HomePage {
 
   constructor(private openFoodFacts: OFFService,
               private nav: NavController,
-              private alertController: AlertController) {
+              private alertController: AlertController,
+              private popoverController: PopoverController) {
   }
 
   getProduct(productCode, callback: (product) => any = null) {
@@ -80,8 +81,14 @@ export class HomePage {
       })
   }
 
-
   viewProductDetails(product) {
     this.nav.push(DetailsPage, {product: product});
+  }
+
+  openPopover(event) {
+    let popover = this.popoverController.create(AppPopover);
+    popover.present({
+      ev: event
+    });
   }
 }

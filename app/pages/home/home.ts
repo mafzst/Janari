@@ -42,19 +42,26 @@ export class HomePage {
         }
       },
       err => {
-        this.alertController.create({
+        let alert = this.alertController.create({
           title: "Erreur de recherche",
           subTitle: "Une erreur est survenue lors de la recherche du produit. Vérifiez votre connexion Internet et rézssayez. Infos techniques : " + err,
           buttons: [
             {
               text: "Réessayer",
-              handler: this.getProduct(productCode)
+              handler: () => {
+                alert.dismiss().then(() => {
+                  this.getProduct(productCode);
+                })
+                return false;
+              }
             },
             {
               text: "OK"
             }
           ]
-        }).present()
+        });
+
+        alert.present();
       }
     );
   }

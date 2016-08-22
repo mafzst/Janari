@@ -3,7 +3,7 @@ import {ViewController, AlertController, PopoverController} from "ionic-angular"
 
 @Component({
   template: `
-<ion-list>
+<ion-list no-lines>
   <ion-item (click)="handleAbout()">A propos</ion-item>
 </ion-list>
 `

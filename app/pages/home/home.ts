@@ -13,9 +13,7 @@ import {AppPopover} from '../../global/popover';
 })
 export class HomePage {
   public foundProduct;
-  public productCode = "3116740031499";
-  public categoryName = "pizza";
-  public foundCategories;
+  public productCode = "311674003149";
 
   constructor(private openFoodFacts: OFFService,
               private nav: NavController,
@@ -23,8 +21,8 @@ export class HomePage {
               private popoverController: PopoverController) {
   }
 
-  getProduct(productCode, callback: (product) => any = null) {
-    this.openFoodFacts.getProduct(productCode).subscribe(
+  getProduct(productCode = null, callback: (product) => any = null) {
+    this.openFoodFacts.getProduct(productCode || this.productCode).subscribe(
       data => {
         let json = data.json();
 
@@ -90,5 +88,13 @@ export class HomePage {
     popover.present({
       ev: event
     });
+  }
+
+  handleSearch() {
+    if(this.productCode.length == 13) {
+      this.getProduct(this.productCode, (product) => {
+        this.viewProductDetails(product);
+      });
+    }
   }
 }

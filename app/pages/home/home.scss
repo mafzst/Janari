@@ -1,2 +1,33 @@
+
 .home {
+  background: color($colors, light);
+}
+
+.title-home {
+  text-align: center;
+  font-size: 5rem !important;
+}
+
+.header-flat {
+  z-index: auto;
+}
+
+.item-flat {
+  background: transparent;
+}
+
+.item-flat:not(.input-has-value) {
+  border-bottom-color: #bbbdbb;
+  box-shadow: inset 0 -1px 0 0 #bbbdbb;
+}
+
+.label-big {
+  font-size: 4rem;
+}
+
+.fab-footer {
+  width: 72px;
+  height: 72px;
+  line-height: 75px;
+  margin-left: -36px;
 }

@@ -1,11 +1,11 @@
 import {Component} from '@angular/core';
 
-import {NavController, AlertController} from 'ionic-angular';
+import {NavController, AlertController, PopoverController} from 'ionic-angular';
 import {BarcodeScanner} from 'ionic-native';
 
 import {OFFService} from '../../services/OFF';
 import {DetailsPage} from '../details/details';
-import {CategoryPage} from '../category/category';
+import {AppPopover} from '../../global/popover';
 
 @Component({
   templateUrl: 'build/pages/home/home.html',
@@ -13,17 +13,16 @@ import {CategoryPage} from '../category/category';
 })
 export class HomePage {
   public foundProduct;
-  public productCode = "3116740031499";
-  public categoryName = "pizza";
-  public foundCategories;
+  public productCode = "311674003149";
 
   constructor(private openFoodFacts: OFFService,
               private nav: NavController,
-              private alertController: AlertController) {
+              private alertController: AlertController,
+              private popoverController: PopoverController) {
   }
 
-  getProduct(productCode, callback: (product) => any = null) {
-    this.openFoodFacts.getProduct(productCode).subscribe(
+  getProduct(productCode = null, callback: (product) => any = null) {
+    this.openFoodFacts.getProduct(productCode || this.productCode).subscribe(
       data => {
         let json = data.json();
 
@@ -66,16 +65,6 @@ export class HomePage {
     );
   }
 
-  getCategories() {
-    this.openFoodFacts.getCategory(this.categoryName).subscribe(
-      data => {
-        const json = data.json();
-        this.foundCategories = json.slice(0, 10);
-      },
-      err => console.log(err)
-    )
-  }
-
   scan() {
     BarcodeScanner.scan()
       .then((result) => {
@@ -90,12 +79,22 @@ export class HomePage {
       })
   }
 
-
   viewProductDetails(product) {
     this.nav.push(DetailsPage, {product: product});
   }
 
-  viewCategoryProducts(category) {
-    this.nav.push(CategoryPage, {category: category});
+  openPopover(event) {
+    let popover = this.popoverController.create(AppPopover);
+    popover.present({
+      ev: event
+    });
+  }
+
+  handleSearch() {
+    if(this.productCode.length == 13) {
+      this.getProduct(this.productCode, (product) => {
+        this.viewProductDetails(product);
+      });
+    }
   }
 }

@@ -1,55 +1,22 @@
-<ion-header>
-  <ion-navbar>
-    <ion-title>Accueil</ion-title>
-  </ion-navbar>
+<ion-header class="header-flat">
+  <ion-toolbar light>
+    <ion-buttons end>
+      <button (click)="openPopover($event)">
+        <ion-icon name="more"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
 </ion-header>
 
 <ion-content padding class="home">
-
-  <ion-card>
-    <ion-card-header>
-      Rechercher un produit
-    </ion-card-header>
-    <ion-card-content>
-      <ion-list inset>
-        <ion-item>
-          <ion-label floating>Code produit</ion-label>
-          <ion-input [(ngModel)]="productCode" type="text"></ion-input>
-        </ion-item>
-      </ion-list>
-      <div class="padding">
-        <button block (click)="scan()">Scanner un produit</button>
-        <button block (click)="getProduct(productCode)">Rechercher</button>
-      </div>
-      <ion-card *ngIf="foundProduct" (click)="viewProductDetails(foundProduct)">
-        <ion-card-header>
-          {{foundProduct.product_name || foundProduct.code}}
-        </ion-card-header>
-        <ion-card-content>
-          {{foundProduct.ingredients_text}}
-        </ion-card-content>
-      </ion-card>
-    </ion-card-content>
-  </ion-card>
-
-  <ion-card>
-    <ion-card-header>
-      Rechercher par catégorie
-    </ion-card-header>
-    <ion-card-content>
-      <ion-list inset>
-        <ion-item>
-          <ion-label floating>Catégorie</ion-label>
-          <ion-input [(ngModel)]="categoryName" (keyup)="getCategories()" type="text"></ion-input>
-        </ion-item>
-      </ion-list>
-      <div class="padding">
-        <ion-list>
-          <ion-item *ngFor="let category of foundCategories" (click)="viewCategoryProducts(category)">
-            {{category}}
-          </ion-item>
-        </ion-list>
-      </div>
-      </ion-card-content>
-    </ion-card>
+  <p class="title-home">Janari</p>
+  <ion-list inset>
+    <ion-item class="item-flat">
+      <ion-label floating class="label-big">Code produit</ion-label>
+      <ion-input [(ngModel)]="productCode" (keyup)="handleSearch()" (keydown.enter)="getProduct()" type="text" class="input-big"></ion-input>
+    </ion-item>
+  </ion-list>
+  <button fab janari fab-bottom fab-center class="fab-footer" (click)="scan()">
+    <ion-icon name="barcode" is-active="false"></ion-icon>
+  </button>
 </ion-content>

@@ -29,7 +29,7 @@ export class AppPopover {
 @Component({
   template: `
 <div class="popover-container">
-<img src="/img/off_logo.png">
+<img src="img/off_logo.png">
 <p>Janari utilise les données de <a href="http://fr.openfoodfacts.org">OpenFoodFacts</a> pour décrypter vos étiquettes</p>
 </div>
 `

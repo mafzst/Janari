@@ -55,7 +55,7 @@ export class DetailsPage {
 }
 
 @Component({
-  templateUrl: "/build/pages/details/additivesPopover.html"
+  templateUrl: "build/pages/details/additivesPopover.html"
 })
 class AdditivesPopover {
 

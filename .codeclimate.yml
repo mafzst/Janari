@@ -13,7 +13,7 @@ engines:
   eslint:
     enabled: true
   csslint:
-    enbled: true
+    enabled: true
   fixme:
     enabled: true
     config:

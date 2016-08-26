@@ -41,6 +41,14 @@ export class DetailsPage {
       data => {
         additive = data.json()[0];
 
+        if(additive == null) {
+          additive = {
+            "code": ecode,
+            "name": "Additif non réportorié",
+            "danger": 0
+          }
+        }
+
         this.additives[tag] = additive;
       },
       err => {

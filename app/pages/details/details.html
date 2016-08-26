@@ -9,7 +9,7 @@
     <ion-card-content>
       <ion-card-title>Carractéristiques</ion-card-title>
       <ion-list no-lines>
-        <ion-item>
+        <ion-item (click)="showScoreInfo()">
           <ion-icon name="speedometer" item-left></ion-icon>
           <h2>Score nutritionnel</h2>
           <ion-badge item-right class={{product.nutrition_grades}}>&#160;{{product.nutrition_grades || "?"}}&#160;</ion-badge>

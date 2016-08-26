@@ -60,11 +60,20 @@ export class DetailsPage {
   showAdditiveInfo() {
     this.popoverController.create(AdditivesPopover).present();
   }
+
+  showScoreInfo() {
+    this.popoverController.create(ScorePopover).present();
+  }
 }
 
 @Component({
   templateUrl: "build/pages/details/additivesPopover.html"
 })
 class AdditivesPopover {
+}
 
+@Component({
+  templateUrl: "build/pages/details/scorePopover.html"
+})
+class ScorePopover {
 }

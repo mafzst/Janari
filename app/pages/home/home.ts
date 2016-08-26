@@ -13,7 +13,7 @@ import {AppPopover} from '../../global/popover';
 })
 export class HomePage {
   public foundProduct;
-  public productCode = "311674003149";
+  public productCode;
 
   constructor(private openFoodFacts: OFFService,
               private nav: NavController,
@@ -22,6 +22,21 @@ export class HomePage {
   }
 
   getProduct(productCode = null, callback: (product) => any = null) {
+
+    if(productCode == null) {
+      let alert = this.alertController.create({
+        title: "Merci d'entrer un code produit",
+        buttons: [
+          {
+            text: "OK"
+          }
+        ]
+      });
+      alert.present();
+
+      return;
+    }
+
     this.openFoodFacts.getProduct(productCode || this.productCode).subscribe(
       data => {
         let json = data.json();

@@ -57,12 +57,16 @@ export class DetailsPage {
     )
   }
 
-  showAdditiveInfo() {
-    this.popoverController.create(AdditivesPopover).present();
+  showAdditiveInfo(event) {
+    this.popoverController.create(AdditivesPopover).present({
+      ev: event
+    });
   }
 
-  showScoreInfo() {
-    this.popoverController.create(ScorePopover).present();
+  showScoreInfo(event) {
+    this.popoverController.create(ScorePopover).present({
+      ev: event
+    });
   }
 
   parseIngredients(string) {

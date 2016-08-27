@@ -1,6 +1,7 @@
 import {Component} from '@angular/core';
 import {NavController, NavParams, PopoverController} from 'ionic-angular';
 import {additivesService} from '../../services/additives'
+import {AppPopover} from "../../global/popover";
 
 @Component({
   templateUrl: 'build/pages/details/details.html',
@@ -71,6 +72,13 @@ export class DetailsPage {
 
   parseIngredients(string) {
     return string.replace(/_(.*?)_/g, "<b>$1</b>");
+  }
+
+  openPopover(event) {
+    let popover = this.popoverController.create(AppPopover);
+    popover.present({
+      ev: event
+    });
   }
 }
 

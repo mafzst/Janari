@@ -1,7 +1,14 @@
 <ion-header>
-  <ion-navbar>
+ <ion-navbar>
+   <ion-toolbar>
     <ion-title>{{product.product_name || product.code}}</ion-title>
-  </ion-navbar>
+    <ion-buttons end>
+      <button (click)="openPopover($event)">
+        <ion-icon name="more"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
+ </ion-navbar>
 </ion-header>
 
 <ion-content>

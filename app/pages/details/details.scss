@@ -37,3 +37,26 @@ ion-badge.high, ion-badge.additive-danger-4 {
 ion-badge.additive-danger-5 {
   background: #990000;
 }
+
+.product-image-container {
+  height: 40vh;
+  overflow: hidden;
+
+  img {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+}
+
+ion-col {
+  padding: 0;
+  margin-bottom: -10px !important;
+}
+
+@media screen and (min-width: $grid-responsive-md-break) {
+  .product-idcard {
+    position: fixed;
+  }
+}
+

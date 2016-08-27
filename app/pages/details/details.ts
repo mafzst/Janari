@@ -64,6 +64,10 @@ export class DetailsPage {
   showScoreInfo() {
     this.popoverController.create(ScorePopover).present();
   }
+
+  parseIngredients(string) {
+    return string.replace(/_(.*?)_/g, "<b>$1</b>");
+  }
 }
 
 @Component({

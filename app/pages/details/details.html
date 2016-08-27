@@ -20,12 +20,12 @@
           <ion-badge class="{{product.nutrient_levels[nutrient]}}" item-right>&#160;&#160;&#160;</ion-badge>
         </ion-item>
       </ion-list>
-      <ion-item>
+      <ion-item *ngIf="product.traces">
         <ion-icon name="locate" item-left></ion-icon>
         <h2>Traces</h2>
         <p>{{product.traces}}</p>
       </ion-item>
-      <ion-item>
+      <ion-item *ngIf="product.additives">
         <ion-icon name="flask" item-left></ion-icon>
         <h2>Additifs</h2>
         <ion-icon name="help" item-right (click)="showAdditiveInfo()"></ion-icon>

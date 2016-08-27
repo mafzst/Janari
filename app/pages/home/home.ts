@@ -1,6 +1,6 @@
 import {Component} from '@angular/core';
 
-import {NavController, AlertController, PopoverController} from 'ionic-angular';
+import {NavController, AlertController, PopoverController, LoadingController} from 'ionic-angular';
 import {BarcodeScanner} from 'ionic-native';
 
 import {OFFService} from '../../services/OFF';
@@ -14,16 +14,22 @@ import {AppPopover} from '../../global/popover';
 export class HomePage {
   public foundProduct;
   public productCode;
+  private searchLoading;
 
   constructor(private openFoodFacts: OFFService,
               private nav: NavController,
               private alertController: AlertController,
-              private popoverController: PopoverController) {
+              private popoverController: PopoverController,
+              private loadingController: LoadingController) {
+
+    this.searchLoading = this.loadingController.create({
+      content: "Recherche..."
+    })
   }
 
   getProduct(productCode = null, callback: (product) => any = null) {
 
-    if(productCode == null) {
+    if (productCode == null) {
       let alert = this.alertController.create({
         title: "Merci d'entrer un code produit",
         buttons: [
@@ -37,6 +43,8 @@ export class HomePage {
       return;
     }
 
+    this.searchLoading.present();
+
     this.openFoodFacts.getProduct(productCode || this.productCode).subscribe(
       data => {
         let json = data.json();
@@ -49,6 +57,9 @@ export class HomePage {
           }).present();
           return;
         }
+
+        this.searchLoading.dismiss();
+
         if (callback) {
           callback(json.product);
         } else {
@@ -106,7 +117,7 @@ export class HomePage {
   }
 
   handleSearch() {
-    if(this.productCode.length == 13) {
+    if (this.productCode.length == 13) {
       this.getProduct(this.productCode, (product) => {
         this.viewProductDetails(product);
       });

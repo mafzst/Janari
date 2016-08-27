@@ -43,7 +43,7 @@
     <ion-card-content>
       <ion-card-title>Ingrédients</ion-card-title>
       <b>{{product.generic_name || product.product_name || product.code}}</b> <br>
-      {{product.ingredients_text}}
+      <p [innerHTML]="parseIngredients(product.ingredients_text)"></p>
     </ion-card-content>
   </ion-card>
 </ion-content>

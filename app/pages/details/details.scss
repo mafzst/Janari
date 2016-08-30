@@ -54,9 +54,21 @@ ion-col {
   margin-bottom: -10px !important;
 }
 
+.idcard-icon {
+  font-size: 2.5rem;
+  color: green;
+}
+
+.idcard-icon.probably {
+  color: orange;
+}
+
+.idcard-icon.present {
+  color: red;
+}
+
 @media screen and (min-width: $grid-responsive-md-break) {
   .product-idcard {
     position: fixed;
   }
 }
-

@@ -23,7 +23,13 @@
             <ion-card-title>
               {{product.product_name || product.code}}
             </ion-card-title>
-            <ion-icon class="icon-palm_oil"></ion-icon>
+            <ion-icon
+              class="idcard-icon icon-palm_oil"
+              [ngClass]="{
+                probably: product.ingredients_that_may_be_from_palm_oil_n > 0,
+                present: product.ingredients_from_palm_oil_n > 0
+              }">
+            </ion-icon>
           </ion-card-content>
         </ion-card>
       </ion-col>

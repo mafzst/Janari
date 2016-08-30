@@ -67,8 +67,16 @@ gulp.task('build', ['clean'], function(done){
 gulp.task('sass', buildSass);
 gulp.task('html', copyHTML);
 gulp.task('fonts', copyFonts);
-gulp.task('scripts', copyScripts);
+gulp.task('scripts', ['customFonts'], copyScripts);
 gulp.task('clean', function(){
   return del('www/build');
 });
 gulp.task('lint', tslint);
+
+gulp.task('customFonts', function () {
+  var src = 'www/fonts/**/*.+(ttf|woff|woff2)';
+  var dest = 'www/build/fonts';
+
+  return gulp.src(src)
+    .pipe(gulp.dest(dest));
+})

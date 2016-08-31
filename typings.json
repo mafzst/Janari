@@ -2,6 +2,7 @@
   "dependencies": {},
   "devDependencies": {},
   "globalDependencies": {
-    "es6-shim": "registry:dt/es6-shim#0.31.2+20160602141504"
+    "es6-shim": "registry:dt/es6-shim#0.31.2+20160602141504",
+    "firebase": "github:angular/angularfire2/manual_typings/firebase3/firebase3.d.ts"
   }
 }

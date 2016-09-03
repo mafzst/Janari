@@ -1,14 +1,14 @@
 <ion-header>
- <ion-navbar>
-   <ion-toolbar>
-    <ion-title>{{product.product_name || product.code}}</ion-title>
-    <ion-buttons end>
-      <button (click)="openPopover($event)">
-        <ion-icon name="more"></ion-icon>
-      </button>
-    </ion-buttons>
-  </ion-toolbar>
- </ion-navbar>
+  <ion-navbar>
+    <ion-toolbar>
+      <ion-title>{{product.product_name || product.code}}</ion-title>
+      <ion-buttons end>
+        <button (click)="openPopover($event)">
+          <ion-icon name="more"></ion-icon>
+        </button>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-navbar>
 </ion-header>
 
 <ion-content>
@@ -44,7 +44,7 @@
                 <ion-badge item-right class={{product.nutrition_grades}}>&#160;{{product.nutrition_grades ||
                   "?"}}&#160;</ion-badge>
               </ion-item>
-              <ion-item *ngFor="let nutrient of getNutrients()">
+              <ion-item *ngFor="let nutrient of getNutrientsLevels()">
                 <ion-icon name="illegal" item-left></ion-icon>
                 <p>{{nutrients[nutrient] || nutrient}}</p>
                 <ion-badge class="{{product.nutrient_levels[nutrient]}}" item-right>&#160;&#160;&#160;</ion-badge>
@@ -66,6 +66,26 @@
               <p>{{additives[additive]?.name}}</p>
               <ion-badge class="additive-danger-{{additives[additive]?.danger || 0}}" item-right>&#160;{{additives[additive]?.danger}}&#160;</ion-badge>
             </ion-item>
+          </ion-card-content>
+        </ion-card>
+        <ion-card>
+          <ion-card-content>
+            <ion-card-title>Valeurs nutritionnelles</ion-card-title>
+            <ion-list no-lines>
+              <ion-list-header>
+                <ion-label>
+                  Afficher les valeur pour 100g <br>
+                  Portion actuelle {{show100g ? '100 g' : servingSize}}
+                </ion-label>
+                <ion-toggle checked="false" [(ngModel)]="show100g"item-right></ion-toggle>
+              </ion-list-header>
+              <ion-item *ngFor="let nutrient of getNutrients()">
+                {{nutrients[nutrient] || nutrient}}
+                <ion-badge class="" item-right>{{nutritionalValues[nutrient][show100g ? '100g' : 'serving']}}
+                  {{nutritionalValues[nutrient].unit}}
+                </ion-badge>
+              </ion-item>
+            </ion-list>
           </ion-card-content>
         </ion-card>
         <ion-card>

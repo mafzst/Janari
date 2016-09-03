@@ -74,7 +74,7 @@ gulp.task('clean', function(){
 gulp.task('lint', tslint);
 
 gulp.task('customFonts', function () {
-  var src = 'www/fonts/**/*.+(ttf|woff|woff2)';
+  var src = 'www/fonts/**/*.+(ttf|woff|woff2|otf)';
   var dest = 'www/build/fonts';
 
   return gulp.src(src)

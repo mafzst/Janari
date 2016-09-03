@@ -20,7 +20,7 @@
   <button fab janari fab-bottom fab-center class="fab-footer" (click)="scan()">
     <ion-icon name="barcode" is-active="false"></ion-icon>
   </button>
-  <ion-card *ngFor="let product of lastProducts" class="card-full-background" (click)="viewProductDetails(product)">
+  <ion-card *ngFor="let product of lastProducts.slice().reverse()" class="card-full-background" (click)="viewProductDetails(product)">
     <div class="product-image-container">
       <img src="{{product.image_front_url}}"/>
     </div>

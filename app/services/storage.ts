@@ -39,7 +39,6 @@ export class StorageService {
 
   insertLastSeenProduct(product: any) {
     const encodedProduct = JSON.stringify(product).replace(/"/g, '§');
-    console.log(encodedProduct);
 
     this.storage.query(
       `SELECT * FROM last_products WHERE data = "${encodedProduct}"`

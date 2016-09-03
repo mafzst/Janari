@@ -34,6 +34,10 @@ export class HomePage {
 
     this.storage.getLastProductsObervable().subscribe(
       data => {
+        var index = this.lastProducts.findIndex((product) => product._id == data['_id']);
+        if(index != -1) {
+          this.lastProducts.splice(index, 1);
+        }
         this.lastProducts.push(data);
       }
     )

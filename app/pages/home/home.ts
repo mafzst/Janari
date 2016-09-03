@@ -4,19 +4,25 @@ import {NavController, AlertController, PopoverController, LoadingController} fr
 import {BarcodeScanner} from 'ionic-native';
 
 import {OFFService} from '../../services/OFF';
+import {StorageService} from '../../services/storage';
 import {DetailsPage} from '../details/details';
 import {AppPopover} from '../../global/popover';
 
 @Component({
   templateUrl: 'build/pages/home/home.html',
-  providers: [OFFService]
+  providers: [
+    OFFService,
+    StorageService
+  ]
 })
 export class HomePage {
   public foundProduct;
   public productCode;
+  public lastProducts = [];
   private searchLoading;
 
   constructor(private openFoodFacts: OFFService,
+              private storage: StorageService,
               private nav: NavController,
               private alertController: AlertController,
               private popoverController: PopoverController,
@@ -25,6 +31,16 @@ export class HomePage {
     this.searchLoading = this.loadingController.create({
       content: "Recherche..."
     })
+
+    this.storage.getLastProductsObervable().subscribe(
+      data => {
+        var index = this.lastProducts.findIndex((product) => product._id == data['_id']);
+        if(index != -1) {
+          this.lastProducts.splice(index, 1);
+        }
+        this.lastProducts.push(data);
+      }
+    )
   }
 
   getProduct(productCode = null, callback: (product) => any = null) {
@@ -59,6 +75,7 @@ export class HomePage {
         }
 
         this.searchLoading.dismiss();
+        this.storage.insertLastSeenProduct(json.product);
 
         if (callback) {
           callback(json.product);

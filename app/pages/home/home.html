@@ -13,10 +13,21 @@
   <ion-list inset>
     <ion-item class="item-flat">
       <ion-label floating class="label-big">Code produit</ion-label>
-      <ion-input [(ngModel)]="productCode" (keyup)="handleSearch()" (keydown.enter)="getProduct()" type="tel" class="input-big"></ion-input>
+      <ion-input [(ngModel)]="productCode" (keyup)="handleSearch()" (keydown.enter)="getProduct()" type="tel"
+                 class="input-big"></ion-input>
     </ion-item>
   </ion-list>
   <button fab janari fab-bottom fab-center class="fab-footer" (click)="scan()">
     <ion-icon name="barcode" is-active="false"></ion-icon>
   </button>
+  <ion-card *ngFor="let product of lastProducts.slice().reverse()" class="card-full-background" (click)="viewProductDetails(product)">
+    <div class="product-image-container">
+      <img src="{{product.image_front_url}}"/>
+    </div>
+    <ion-card-content>
+      <ion-card-title>
+        {{product.product_name || product.code}}
+      </ion-card-title>
+    </ion-card-content>
+  </ion-card>
 </ion-content>

@@ -26,8 +26,22 @@
 }
 
 .fab-footer {
+  z-index: 99;
+  position: fixed;
   width: 72px;
   height: 72px;
   line-height: 75px;
   margin-left: -36px;
 }
+
+.home .product-image-container {
+  height: 30vh;
+  overflow: hidden;
+
+  img {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+}
+

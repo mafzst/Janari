@@ -28,10 +28,6 @@ export class HomePage {
               private popoverController: PopoverController,
               private loadingController: LoadingController) {
 
-    this.searchLoading = this.loadingController.create({
-      content: "Recherche..."
-    })
-
     this.storage.getLastProductsObervable().subscribe(
       data => {
         var index = this.lastProducts.findIndex((product) => product._id == data['_id']);
@@ -59,6 +55,9 @@ export class HomePage {
       return;
     }
 
+    this.searchLoading = this.loadingController.create({
+      content: "Recherche..."
+    });
     this.searchLoading.present();
 
     this.openFoodFacts.getProduct(productCode || this.productCode).subscribe(

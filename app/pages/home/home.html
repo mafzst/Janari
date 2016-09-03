@@ -1,5 +1,5 @@
 <ion-header class="header-flat">
-  <ion-toolbar light>
+  <ion-toolbar app-bg>
     <ion-buttons end>
       <button (click)="openPopover($event)">
         <ion-icon name="more"></ion-icon>
@@ -11,11 +11,6 @@
 <ion-content padding class="home">
   <p class="title-home">Janari</p>
   <ion-list inset>
-    <ion-item class="item-flat">
-      <ion-label floating class="label-big">Code produit</ion-label>
-      <ion-input [(ngModel)]="productCode" (keyup)="handleSearch()" (keydown.enter)="getProduct()" type="tel"
-                 class="input-big"></ion-input>
-    </ion-item>
   </ion-list>
   <button fab janari fab-bottom fab-center class="fab-footer" (click)="scan()">
     <ion-icon name="barcode" is-active="false"></ion-icon>

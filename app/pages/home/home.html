@@ -15,14 +15,21 @@
   <button fab janari fab-bottom fab-center class="fab-footer" (click)="scan()">
     <ion-icon name="barcode" is-active="false"></ion-icon>
   </button>
-  <ion-card *ngFor="let product of lastProducts.slice().reverse()" class="card-full-background" (click)="viewProductDetails(product)">
-    <div class="product-image-container">
-      <img src="{{product.image_front_url}}"/>
-    </div>
-    <ion-card-content>
-      <ion-card-title>
-        {{product.product_name || product.code}}
-      </ion-card-title>
-    </ion-card-content>
-  </ion-card>
+  <ion-grid>
+    <ion-row responsive-sm wrap>
+      <ion-col width-50 *ngFor="let product of lastProducts.slice().reverse()">
+        <ion-card class="card-full-background"
+                  (click)="viewProductDetails(product)">
+          <div class="product-image-container">
+            <img src="{{product.image_front_url}}"/>
+          </div>
+          <ion-card-content>
+            <ion-card-title>
+              {{product.product_name || product.code}}
+            </ion-card-title>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>

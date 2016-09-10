@@ -1,0 +1,11 @@
+{
+  "HOME": {
+    "PRODUCT_CODE": "Code produit"
+  },
+  "MESSAGES": {
+    "NOT_FOUND_ALERT": {
+      "TITLE": "Produit non trouvé",
+      "TEXT": "Le code {{code}} ne correspond à aucun produit."
+    }
+  }
+}

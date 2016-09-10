@@ -7,6 +7,7 @@ import {OFFService} from '../../services/OFF';
 import {StorageService} from '../../services/storage';
 import {DetailsPage} from '../details/details';
 import {AppPopover} from '../../global/popover';
+import {TranslateService} from "ng2-translate";
 
 @Component({
   templateUrl: 'build/pages/home/home.html',
@@ -26,12 +27,13 @@ export class HomePage {
               private nav: NavController,
               private alertController: AlertController,
               private popoverController: PopoverController,
-              private loadingController: LoadingController) {
+              private loadingController: LoadingController,
+              private translate: TranslateService) {
 
     this.storage.getLastProductsObervable().subscribe(
       data => {
         var index = this.lastProducts.findIndex((product) => product._id == data['_id']);
-        if(index != -1) {
+        if (index != -1) {
           this.lastProducts.splice(index, 1);
         }
         this.lastProducts.push(data);
@@ -65,8 +67,14 @@ export class HomePage {
         let json = data.json();
 
         if (json.status != 1) {
+          let texts = {};
+          this.translate.get('MESSAGES.NOT_FOUND_ALERT', {code: productCode}).subscribe((res) => {
+            texts = res
+          });
+          console.log(texts);
+
           this.alertController.create({
-            title: "Produit non trouvé",
+            title: texts['TITLE'],
             subTitle: `Le code ${productCode} ne correspond à aucun produit`,
             buttons: ['OK']
           }).present();

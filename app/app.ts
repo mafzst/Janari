@@ -20,7 +20,6 @@ export class MyApp {
     this.rootPage = HomePage;
 
     translate.use('fr');
-    console.log(translate.getLangs());
 
     platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.

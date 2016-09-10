@@ -74,10 +74,10 @@
             <ion-list no-lines>
               <ion-list-header>
                 <ion-label>
-                  Afficher les valeur pour 100g <br>
+                  <b>Afficher les valeurs pour 100g</b> <br>
                   Portion actuelle {{show100g ? '100 g' : servingSize}}
                 </ion-label>
-                <ion-toggle checked="false" [(ngModel)]="show100g"item-right></ion-toggle>
+                <ion-toggle janari checked="false" [(ngModel)]="show100g"item-right></ion-toggle>
               </ion-list-header>
               <ion-item *ngFor="let nutrient of getNutrients()">
                 {{nutrients[nutrient] || nutrient}}

@@ -1,5 +1,6 @@
 import {Component} from '@angular/core';
 import {NavController, NavParams, PopoverController} from 'ionic-angular';
+import {TranslateService} from 'ng2-translate';
 import {additivesService} from '../../services/additives'
 import {AppPopover} from "../../global/popover";
 
@@ -11,18 +12,6 @@ import {AppPopover} from "../../global/popover";
 export class DetailsPage {
   public product;
   public additives = {};
-
-  public nutrients = {
-    'salt': "Sel",
-    'fat': "Matières grasses / Lipides",
-    'saturated-fat': "Acides gras saturés",
-    'sugars': "Sucres",
-    "sodium": "Sodium",
-    "proteins": "Protéines",
-    "energy": "Energie",
-    "carbohydrates": "Glucides",
-    "fiber": "Fibres"
-  }
   public nutritionalValues;
   public servingSize = "100g";
   public show100g = false;
@@ -30,7 +19,8 @@ export class DetailsPage {
   constructor(private nav: NavController,
               private navParams: NavParams,
               private popoverController: PopoverController,
-              private additivesService: additivesService) {
+              private additivesService: additivesService,
+              private translate: TranslateService) {
 
     this.product = navParams.get('product');
 
@@ -116,6 +106,15 @@ export class DetailsPage {
 
   parseIngredients(string) {
     return string.replace(/_(.*?)_/g, "<b>$1</b>");
+  }
+
+  getNutrimentTranslation(nutriment) {
+    let translated;
+    this.translate.get(`NUTRIMENTS.${nutriment.toUpperCase()}`)
+      .subscribe((returned) => {
+        translated = returned
+      });
+    return translated;
   }
 
   openPopover(event) {

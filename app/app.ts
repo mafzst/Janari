@@ -19,6 +19,7 @@ export class MyApp {
   constructor(private platform: Platform, translate: TranslateService) {
     this.rootPage = HomePage;
 
+    translate.setDefaultLang('fr');
     translate.use('fr');
 
     platform.ready().then(() => {

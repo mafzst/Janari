@@ -75,7 +75,7 @@
               <ion-list-header>
                 <ion-label>
                   <b>{{'SETTINGS.SHOW-100G' | translate}}</b> <br>
-                  Portion actuelle {{show100g ? '100 g' : servingSize}}
+                  {{'LABELS.ACTUAL_SERVING' | translate:{size: show100g ? '100 g' : servingSize} }}
                 </ion-label>
                 <ion-toggle janari checked="false" [(ngModel)]="show100g" item-right></ion-toggle>
               </ion-list-header>

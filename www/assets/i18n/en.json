@@ -5,8 +5,13 @@
       "TEXT": "No product found corresponding to {{code}}"
     }
   },
+  "LABELS": {
+    "ACTUAL_SERVING": "Actual serving size: {{size}}"
+  },
   "SETTINGS": {
-    "SHOW-100G": "Show values per 100g"
+    "SHOW-100G": "Show values per 100g",
+    "LANGUAGE": "Change language",
+    "ABOUT": "About"
   },
   "HOME": {
     "PRODUCT_CODE": "Product code"

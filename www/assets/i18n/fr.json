@@ -5,8 +5,13 @@
       "TEXT": "Le code {{code}} ne correspond à aucun produit."
     }
   },
+  "LABELS": {
+    "ACTUAL_SERVING": "Portion actuelle : {{size}}"
+  },
   "SETTINGS": {
-    "SHOW-100G": "Afficher les valeurs pour 100g"
+    "SHOW-100G": "Afficher les valeurs pour 100g",
+    "LANGUAGE": "Changer de langue",
+    "ABOUT": "A propos"
   },
   "HOME": {
     "PRODUCT_CODE": "Code produit"

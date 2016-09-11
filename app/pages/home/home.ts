@@ -7,6 +7,7 @@ import {OFFService} from '../../services/OFF';
 import {StorageService} from '../../services/storage';
 import {DetailsPage} from '../details/details';
 import {AppPopover} from '../../global/popover';
+import {AngularFire, AuthProviders, AuthMethods} from "angularfire2";
 
 @Component({
   templateUrl: 'build/pages/home/home.html',
@@ -26,12 +27,13 @@ export class HomePage {
               private nav: NavController,
               private alertController: AlertController,
               private popoverController: PopoverController,
-              private loadingController: LoadingController) {
+              private loadingController: LoadingController,
+              private firebase: AngularFire) {
 
     this.storage.getLastProductsObervable().subscribe(
       data => {
         var index = this.lastProducts.findIndex((product) => product._id == data['_id']);
-        if(index != -1) {
+        if (index != -1) {
           this.lastProducts.splice(index, 1);
         }
         this.lastProducts.push(data);
@@ -138,5 +140,15 @@ export class HomePage {
         this.viewProductDetails(product);
       });
     }
+  }
+
+  openLogin() {
+    this.firebase.auth.login({
+      provider: AuthProviders.Google,
+      method: AuthMethods.Redirect
+    })
+      .then((authData) => {
+        console.log(authData);
+      });
   }
 }

@@ -3,7 +3,10 @@ import {Platform, ionicBootstrap} from 'ionic-angular';
 import {StatusBar} from 'ionic-native';
 import {
   FIREBASE_PROVIDERS,
-  defaultFirebase
+  AuthProviders,
+  AuthMethods,
+  defaultFirebase,
+  firebaseAuthConfig
 } from 'angularfire2';
 import {HomePage} from './pages/home/home';
 
@@ -18,11 +21,13 @@ let prodMode: boolean = !!window.hasOwnProperty('cordava');
       authDomain: "janari-4f29d.firebaseapp.com",
       databaseURL: "https://janari-4f29d.firebaseio.com",
       storageBucket: "janari-4f29d.appspot.com",
+    }),
+    firebaseAuthConfig({
+      provider: AuthProviders.Password,
+      method: AuthMethods.Password,
+      remember: 'default',
+      scope: ['email']
     })
-    // firebaseAuthConfig({
-    //   provider: AuthProviders.Password,
-    //   method: AuthMethods.Password
-    // })
   ]
 })
 export class MyApp {

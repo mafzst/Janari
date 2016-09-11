@@ -1,0 +1,33 @@
+{
+  "MESSAGES": {
+    "NOT_FOUND_ALERT": {
+      "TITLE": "Product not found",
+      "TEXT": "No product found corresponding to {{code}}"
+    }
+  },
+  "SETTINGS": {
+    "SHOW-100G": "Show values per 100g"
+  },
+  "HOME": {
+    "PRODUCT_CODE": "Product code"
+  },
+  "DETAILS": {
+    "CHARACTERISTICS": "Characteristics",
+    "NUTRITIONAL_SCORE": "Nutritional score",
+    "TRACES": "Traces",
+    "ADDITIVES": "Additives",
+    "NUTRITIONAL_VALUES": "Nutritional values",
+    "INGREDIENTS": "Ingredients"
+  },
+  "NUTRIMENTS": {
+    "SALT": "Salt",
+    "FAT": "Fat",
+    "SATURATED-FAT": "Saturated fat",
+    "SUGARS": "Sugars",
+    "SODIUM": "Sodium",
+    "PROTEINS": "Proteins",
+    "ENERGY": "Energy",
+    "CARBOHYDRATES": "Carbohydrates",
+    "FIBER": "Dietary fiber"
+  }
+}

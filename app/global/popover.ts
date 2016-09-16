@@ -31,6 +31,7 @@ export class AppPopover {
   changeLanguage() {
     let current = this.translate.currentLang;
     this.translate.use(current == 'fr' ? 'en' : 'fr');
+    this.viewController.dismiss();
   }
 }
 

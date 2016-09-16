@@ -9,4 +9,10 @@
 
 @import "../pages/home/home";
 @import "../pages/details/details";
+@import "../pages/authentication/authentication";
 @import "../global/popover";
+
+.bottom {
+  position: absolute;
+  bottom: 16px;
+}

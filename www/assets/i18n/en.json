@@ -1,4 +1,7 @@
 {
+  "GLOBAL": {
+    "WELCOME": "Welcome!"
+  },
   "MESSAGES": {
     "NOT_FOUND_ALERT": {
       "TITLE": "Product not found",
@@ -12,6 +15,17 @@
     "SHOW-100G": "Show values per 100g",
     "LANGUAGE": "Change language",
     "ABOUT": "About"
+  },
+  "AUTH": {
+    "TITLE": "Create your profile!",
+    "EXPLANATION": "And receive personal advices",
+    "OR": "or",
+    "IGNORE": "Ignore",
+    "LOGINWITH": {
+      "GOOGLE": "Login with Google",
+      "FACEBOOK": "Login with Facebook",
+      "TWITTER": "Login with twitter"
+    }
   },
   "HOME": {
     "PRODUCT_CODE": "Product code"

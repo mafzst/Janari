@@ -1,0 +1,59 @@
+ion-content.auth {
+  background-color: color($colors, janari);
+
+  h1 {
+    text-align: center;
+    font-variant: small-caps;
+    color: color($colors, light);
+  }
+
+  ion-item {
+    background-color: transparent;
+  }
+
+  p.subtitle {
+    text-align: center;
+    font-size: 1.7rem;
+    color: color($colors, light);
+  }
+
+  ion-label {
+    color: color($colors, light);
+  }
+
+  .item-inner {
+    box-shadow: inset 0 -1px 0 0 color($colors, light);
+  }
+
+  ion-input {
+    color: color($colors, light);
+  }
+  ::-webkit-input-placeholder {
+    color: color($colors, light);
+  }
+}
+
+.small-explanation {
+  font-size: 1.2rem;;
+}
+
+.svg-icon {
+  height: 100%;
+  padding: 11px 8px 10px 0;
+}
+
+.lined-text {
+  width: 60%;
+  transform: translateX(30%);
+  text-align: center;
+  border-bottom: 1px solid color($colors, light);
+  line-height: 0;
+  margin: 30px 0 20px;
+
+  span {
+    padding: 0.5rem;
+    background: color($colors, janari);
+    font-size: 2rem;
+    color: color($colors, light);;
+  }
+}

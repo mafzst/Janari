@@ -1,6 +1,13 @@
 import {Component} from '@angular/core';
 
-import {NavController, AlertController, PopoverController, LoadingController} from 'ionic-angular';
+import {
+  NavController,
+  AlertController,
+  PopoverController,
+  LoadingController,
+  Storage,
+  LocalStorage
+} from 'ionic-angular';
 import {BarcodeScanner} from 'ionic-native';
 
 import {OFFService} from '../../services/OFF';
@@ -8,6 +15,8 @@ import {StorageService} from '../../services/storage';
 import {DetailsPage} from '../details/details';
 import {AppPopover} from '../../global/popover';
 import {TranslateService} from "ng2-translate";
+import {Auth, User} from "@ionic/cloud-angular";
+import {AuthenticationPage} from "../authentication/authentication";
 
 @Component({
   templateUrl: 'build/pages/home/home.html',
@@ -17,18 +26,30 @@ import {TranslateService} from "ng2-translate";
   ]
 })
 export class HomePage {
+  private local: Storage;
   public foundProduct;
   public productCode;
   public lastProducts = [];
   private searchLoading;
 
-  constructor(private openFoodFacts: OFFService,
+  constructor(private auth: Auth,
+              private user: User,
+              private openFoodFacts: OFFService,
               private storage: StorageService,
               private nav: NavController,
               private alertController: AlertController,
               private popoverController: PopoverController,
               private loadingController: LoadingController,
               private translate: TranslateService) {
+    this.local = new Storage(LocalStorage)
+
+    if (!this.auth.isAuthenticated()) {
+      this.local.get('authIgnored').then((ignored)=> {
+        if(!ignored) {
+          this.nav.push(AuthenticationPage);
+        }
+      })
+    }
 
     this.storage.getLastProductsObervable().subscribe(
       data => {
@@ -71,7 +92,6 @@ export class HomePage {
           this.translate.get('MESSAGES.NOT_FOUND_ALERT', {code: productCode}).subscribe((res) => {
             texts = res
           });
-          console.log(texts);
 
           this.alertController.create({
             title: texts['TITLE'],

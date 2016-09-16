@@ -1,7 +1,7 @@
 @font-face {
   font-family: 'janari';
-  src:  url('../fonts/janari.eot?oyvmre');
-  src:  url('../fonts/janari.eot?oyvmre#iefix') format('embedded-opentype'),
+  src: url('../fonts/janari.eot?oyvmre');
+  src: url('../fonts/janari.eot?oyvmre#iefix') format('embedded-opentype'),
   url('../fonts/janari.ttf?oyvmre') format('truetype'),
   url('../fonts/janari.woff?oyvmre') format('woff'),
   url('../fonts/janari.svg?oyvmre#janari') format('svg');
@@ -40,4 +40,29 @@
 
 .icon-palm_oil:before {
   content: "\e900";
+}
+
+.icon-logo-google-color .path1:before {
+  content: "\e901";
+  color: rgb(255, 255, 255);
+}
+.icon-logo-google-color .path2:before {
+  content: "\e902";
+  margin-left: -1em;
+  color: rgb(234, 67, 53);
+}
+.icon-logo-google-color .path3:before {
+  content: "\e903";
+  margin-left: -1em;
+  color: rgb(251, 188, 5);
+}
+.icon-logo-google-color .path4:before {
+  content: "\e904";
+  margin-left: -1em;
+  color: rgb(66, 133, 244);
+}
+.icon-logo-google-color .path5:before {
+  content: "\e905";
+  margin-left: -1em;
+  color: rgb(52, 168, 83);
 }

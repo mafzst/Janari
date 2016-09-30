@@ -1,25 +1,25 @@
 <ion-header class="header-flat">
-  <ion-toolbar janari>
+  <ion-toolbar color="janari">
     <ion-title>{{'GLOBAL.WELCOME' | translate}}</ion-title>
-    <!--<ion-buttons end>-->
-      <!--<button (click)="openPopover($event)">-->
-        <!--<ion-icon name="flag"></ion-icon>-->
-      <!--</button>-->
-    <!--</ion-buttons>-->
+    <ion-buttons end>
+      <button ion-button (click)="openPopover($event)">
+        <ion-icon name="flag"></ion-icon>
+      </button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 <ion-content padding class="auth">
   <h1>{{'AUTH.TITLE' | translate}}</h1>
   <p class="subtitle">{{'AUTH.EXPLANATION' | translate}}</p>
-  <button block google (click)="handleGoogleLogin()">
-    <img src="img/google-favicon.svg" class="svg-icon">
+  <button ion-button block color="google" (click)="handleGoogleLogin()">
+    <img src="assets/img/google-favicon.svg" class="svg-icon">
     {{'AUTH.LOGINWITH.GOOGLE' | translate}}
   </button>
-  <button block facebook (click)="handleFacebookLogin()">
+  <button ion-button block color="facebook" (click)="handleFacebookLogin()">
     <ion-icon name="logo-facebook" item-left></ion-icon>
     {{'AUTH.LOGINWITH.FACEBOOK' | translate}}
   </button>
-  <button block twitter (click)="handleTwitterLogin()">
+  <button ion-button block color="twitter" (click)="handleTwitterLogin()">
     <ion-icon name="logo-twitter" item-left></ion-icon>
     {{'AUTH.LOGINWITH.TWITTER' | translate}}
   </button>
@@ -38,8 +38,8 @@
       <ion-input type="password" placeholder="Mot de passe" [(ngModel)]="password" required></ion-input>
     </ion-item>
   </ion-list>
-  <button block outline light (click)="loginOrRegister()">Valider</button>
+  <button ion-button block outline color="light" (click)="loginOrRegister()">Valider</button>
   <p class="small-explanation">Si votre compte existe, vous serez connecté automatiquement</p>
-  <button clear light class="bottom hide-on-keyboard-open" (click)="handleIgnore()">{{'AUTH.IGNORE' | translate}}
+  <button ion-button clear color="light" class="bottom hide-on-keyboard-open" (click)="handleIgnore()">{{'AUTH.IGNORE' | translate}}
   </button>
 </ion-content>

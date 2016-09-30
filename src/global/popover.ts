@@ -1,6 +1,6 @@
 import {Component} from "@angular/core";
 import {ViewController, AlertController, PopoverController} from "ionic-angular";
-// import {TranslateService} from "ng2-translate";
+import {TranslateService} from "ng2-translate/ng2-translate";
 
 @Component({
   template: `
@@ -15,7 +15,7 @@ export class AppPopover {
   constructor(private viewController: ViewController,
               private alertController: AlertController,
               private popoverController: PopoverController,
-              /*private translate: TranslateService*/) {
+              private translate: TranslateService) {
   }
 
   close() {
@@ -29,8 +29,8 @@ export class AppPopover {
   }
 
   changeLanguage() {
-    // let current = this.translate.currentLang;
-    // this.translate.use(current == 'fr' ? 'en' : 'fr');
+    let current = this.translate.currentLang;
+    this.translate.use(current == 'fr' ? 'en' : 'fr');
     this.viewController.dismiss();
   }
 }

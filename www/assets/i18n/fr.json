@@ -1,4 +1,7 @@
 {
+  "GLOBAL": {
+    "WELCOME": "Bienvenue !"
+  },
   "MESSAGES": {
     "NOT_FOUND_ALERT": {
       "TITLE": "Produit non trouvé",
@@ -12,6 +15,17 @@
     "SHOW-100G": "Afficher les valeurs pour 100g",
     "LANGUAGE": "Changer de langue",
     "ABOUT": "A propos"
+  },
+  "AUTH": {
+    "TITLE": "Créez votre profil !",
+    "EXPLANATION": "Pour recevoir des conseils personnalisés",
+    "OR": "ou",
+    "IGNORE": "Ignorer",
+    "LOGINWITH": {
+      "GOOGLE": "Connexion avec Google",
+      "FACEBOOK": "Connexion avec Facebook",
+      "TWITTER": "Connexion avec twitter"
+    }
   },
   "HOME": {
     "PRODUCT_CODE": "Code produit"

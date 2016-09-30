@@ -1,13 +1,18 @@
-
 import {Component, PLATFORM_PIPES} from '@angular/core';
 import {Platform, ionicBootstrap} from 'ionic-angular';
+import {provideCloud, CloudSettings} from '@ionic/cloud-angular';
 import {StatusBar} from 'ionic-native';
-import {StorageService} from './services/storage';
 import {HomePage} from './pages/home/home';
 import {TranslateLoader, TranslateStaticLoader, TranslateService, TranslatePipe} from "ng2-translate";
 import {Http} from "@angular/http";
 
 let prodMode: boolean = !!window.hasOwnProperty('cordava');
+
+const cloudSettings: CloudSettings = {
+  'core': {
+    'app_id': 'd33141dc'
+  }
+}
 
 @Component({
   template: '<ion-nav [root]="rootPage"></ion-nav>'
@@ -41,5 +46,6 @@ ionicBootstrap(MyApp, [
     useValue: TranslatePipe,
     multi: true
   },
-  TranslateService
+  TranslateService,
+  provideCloud(cloudSettings)
 ], {prodMode: prodMode});

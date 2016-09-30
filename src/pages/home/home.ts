@@ -13,7 +13,7 @@ import {OFFService} from '../../services/OFF';
 import {StorageService} from '../../services/storage';
 import {DetailsPage} from '../details/details';
 import {AppPopover} from '../../global/popover';
-// import {TranslateService} from "ng2-translate";
+import {TranslateService} from "ng2-translate/ng2-translate";
 import {Auth, User} from "@ionic/cloud-angular";
 import {AuthenticationPage} from "../authentication/authentication";
 
@@ -25,11 +25,11 @@ import {AuthenticationPage} from "../authentication/authentication";
     ]
 })
 export class HomePage {
-    private local: Storage;
+    public local: Storage;
     public foundProduct;
     public productCode;
     public lastProducts = [];
-    private searchLoading;
+    public searchLoading;
 
     constructor(private auth: Auth,
                 private user: User,
@@ -39,7 +39,7 @@ export class HomePage {
                 private alertController: AlertController,
                 private popoverController: PopoverController,
                 private loadingController: LoadingController,
-                /*private translate: TranslateService*/) {
+                private translate: TranslateService) {
         this.local = new Storage()
 
         if (!this.auth.isAuthenticated()) {
@@ -88,9 +88,9 @@ export class HomePage {
 
                 if (json.status != 1) {
                     let texts = {};
-                    // this.translate.get('MESSAGES.NOT_FOUND_ALERT', {code: productCode}).subscribe((res) => {
-                    //     texts = res
-                    // });
+                    this.translate.get('MESSAGES.NOT_FOUND_ALERT', {code: productCode}).subscribe((res) => {
+                        texts = res
+                    });
 
                     this.alertController.create({
                         title: texts['TITLE'],

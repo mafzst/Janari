@@ -16,9 +16,9 @@ import {AppPopover} from "../../global/popover";
 })
 
 export class AuthenticationPage {
-    private email;
-    private password;
-    private local: Storage;
+    public email;
+    public password;
+    public local: Storage;
 
     constructor(public auth: Auth,
                 public user: User,

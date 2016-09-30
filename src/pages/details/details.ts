@@ -1,6 +1,6 @@
 import {Component} from '@angular/core';
 import {NavController, NavParams, PopoverController} from 'ionic-angular';
-// import {TranslateService} from 'ng2-translate';
+import {TranslateService} from 'ng2-translate/ng2-translate';
 import {additivesService} from '../../services/additives'
 import {AppPopover} from "../../global/popover";
 
@@ -20,7 +20,7 @@ export class DetailsPage {
               private navParams: NavParams,
               private popoverController: PopoverController,
               private additivesService: additivesService,
-              /*private translate: TranslateService*/) {
+              private translate: TranslateService) {
 
     this.product = navParams.get('product');
 
@@ -110,10 +110,10 @@ export class DetailsPage {
 
   getNutrimentTranslation(nutriment) {
     let translated;
-    // this.translate.get(`NUTRIMENTS.${nutriment.toUpperCase()}`)
-    //   .subscribe((returned) => {
-    //     translated = returned
-    //   });
+    this.translate.get(`NUTRIMENTS.${nutriment.toUpperCase()}`)
+      .subscribe((returned) => {
+        translated = returned
+      });
     return translated;
   }
 

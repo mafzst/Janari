@@ -1,0 +1,18 @@
+// http://ionicframework.com/docs/v2/theming/
+// App Shared Imports
+// --------------------------------------------------
+// These are the imports which make up the design of this src.
+// By default each design mode includes these shared imports.
+// App Shared Sass variables belong in src.variables.scss.
+
+@import "janari-font";
+
+@import "../pages/home/home";
+@import "../pages/details/details";
+@import "../pages/authentication/authentication";
+@import "../global/popover";
+
+.bottom {
+  position: absolute;
+  bottom: 16px;
+}

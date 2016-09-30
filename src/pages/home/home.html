@@ -1,0 +1,34 @@
+<script src="../../app/app.component.ts"></script>
+<ion-header class="header-flat">
+  <ion-toolbar app-bg>
+    <ion-buttons end>
+      <button (click)="openPopover($event)">
+        <ion-icon name="more"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding class="home">
+  <p class="title-home">Janari</p>
+  <button fab janari fab-bottom fab-center class="fab-footer" (click)="scan()">
+    <ion-icon name="barcode" is-active="false"></ion-icon>
+  </button>
+  <ion-grid>
+    <ion-row responsive-sm wrap>
+      <ion-col width-50 *ngFor="let product of lastProducts.slice().reverse()">
+        <ion-card class="card-full-background"
+                  (click)="viewProductDetails(product)">
+          <div class="product-image-container">
+            <img src="{{product.image_front_url}}"/>
+          </div>
+          <ion-card-content>
+            <ion-card-title>
+              {{product.product_name || product.code}}
+            </ion-card-title>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
